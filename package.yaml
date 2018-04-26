@@ -25,6 +25,7 @@ dependencies:
 - MissingH
 - directory
 - bytestring
+- criterion
 
 library:
   source-dirs: src

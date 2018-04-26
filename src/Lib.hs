@@ -1,13 +1,19 @@
 module Lib
-    ( --readBooks
-      readBook
+    ( boyerSearchOne
+    , boyerSearchMany
     ) where
 
-import Prelude hiding (readFile)
-import Data.ByteString
-import Data.String.Utils
+import Data.ByteString hiding (foldr)
+import Data.ByteString.Search
 
 
+boyerSearchOne :: ByteString -- ^ The pattern to find
+               -> ByteString -- ^ The filename to search
+               -> [Int]
+boyerSearchOne = indices
 
-readBook :: String -> IO ByteString
-readBook filename = readFile filename
+
+boyerSearchMany :: [ByteString]   -- ^ The patterns to find
+                -> ByteString     -- ^ The filename to search
+                -> [Int]
+boyerSearchMany ss b = foldr (\item acc -> acc ++ boyerSearchOne item b) [] ss
