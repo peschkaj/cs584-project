@@ -34,7 +34,7 @@ main :: IO ()
 main = do
   getHomeDirectory >>= setCurrentDirectory
   makeAbsolute "./Downloads" >>= setCurrentDirectory
-  book <- readFile "2600-0.txt"
+  book <- readFile "76-0.txt"
 
   defaultMain [
     bgroup "boyer-moore" [ bench "searchOne" $ whnf searchHuck book
