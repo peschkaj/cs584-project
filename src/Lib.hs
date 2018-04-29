@@ -1,6 +1,7 @@
 module Lib
     ( boyerSearchOne
     , boyerSearchMany
+    , krSearchOne
     , krSearchMany
     ) where
 
@@ -20,7 +21,12 @@ boyerSearchMany :: [ByteString]   -- ^ The patterns to find
                 -> [Int]
 boyerSearchMany ss b = foldr (\item acc -> acc ++ boyerSearchOne item b) [] ss
 
+krSearchOne :: ByteString -- ^ The pattern to find
+            -> ByteString -- ^ The filename to search
+            -> [(Int, [Int])]
+krSearchOne ss = KR.indicesOfAny [ss]
+
 krSearchMany :: [ByteString]
              -> ByteString
              -> [(Int, [Int])]
-krSearchMany ss b = KR.indicesOfAny ss b
+krSearchMany = KR.indicesOfAny

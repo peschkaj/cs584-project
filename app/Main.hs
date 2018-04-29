@@ -27,18 +27,22 @@ searchHuck = boyerSearchOne (C8.pack "Huckleberry")
 
 searchMany = boyerSearchMany singleWords
 
+krSO = krSearchOne (C8.pack "Huckleberry")
 krSM = krSearchMany singleWords
 
 main :: IO ()
 main = do
   getHomeDirectory >>= setCurrentDirectory
   makeAbsolute "./Downloads" >>= setCurrentDirectory
-  book <- readFile "76-0.txt"
+  book <- readFile "2600-0.txt"
 
   defaultMain [
     bgroup "boyer-moore" [ bench "searchOne" $ whnf searchHuck book
                          , bench "searchMany" $ whnf searchMany book
-                         , bench "krSearchMany" $ whnf krSM book ]
+                         ],
+    bgroup "karp-rabin"  [ bench "krSearchOne" $ whnf krSO book
+                         , bench "krSearchMany" $ whnf krSM book
+                         ]
               ]
 
   {-
