@@ -37,7 +37,7 @@ executables:
     ghc-options:
     - -threaded
     - -rtsopts
-    - "\"-with-rtsopts=-N -s -A10000m -threaded\""
+    - "\"-with-rtsopts=-N -s -A10000m -IO -C -G1 -m100m -qa \""
     dependencies:
     - cs584-project
 

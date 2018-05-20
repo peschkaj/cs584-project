@@ -6,14 +6,14 @@ module Lib
     ) where
 
 import Data.ByteString hiding (foldr)
-import Data.ByteString.Search
+import Data.ByteString.Search as BM
 import Data.ByteString.Search.KarpRabin as KR
 
 
 boyerSearchOne :: ByteString -- ^ The pattern to find
                -> ByteString -- ^ The filename to search
                -> [Int]
-boyerSearchOne = indices
+boyerSearchOne = BM.indices
 
 
 boyerSearchMany :: [ByteString]   -- ^ The patterns to find

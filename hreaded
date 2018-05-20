@@ -1,2 +1,2 @@
-/Users/jeremiah/src/peschkaj/cs584-project/.stack-work/install/x86_64-osx/lts-11.5/8.2.2/bin/cs584-project-exe --output /Users/jeremiah/Desktop/criterion.html --time-limit 20 +RTS -N -s -A10000m -threaded 
-<<ghc: 127081727600 bytes, 6160 GCs, 895613/975528 avg/max bytes residency (6160 samples), 81304M in use, 0.385 INIT (0.859 elapsed), 83.457 MUT (81.726 elapsed), 9.806 GC (1.602 elapsed) :ghc>>
+/Users/jeremiah/src/peschkaj/cs584-project/.stack-work/install/x86_64-osx/lts-11.5/8.2.2/bin/cs584-project-exe --output /Users/jeremiah/Desktop/criterion-2018-05-20.06.html +RTS -N4 -s -A10000m -threaded 
+<<ghc: 2917184688 bytes, 7243 GCs, 4213801/4299944 avg/max bytes residency (7243 samples), 40641M in use, 0.181 INIT (0.450 elapsed), 20.036 MUT (19.827 elapsed), 4.726 GC (1.332 elapsed) :ghc>>
