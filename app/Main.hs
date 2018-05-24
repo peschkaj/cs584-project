@@ -1,8 +1,6 @@
 {-# LANGUAGE BangPatterns #-}
 module Main where
 
-
---import Prelude hiding (readFile)
 import Lib
 import System.Directory
 import Data.ByteString as B hiding (map, take)
@@ -27,8 +25,6 @@ main = do
   let krSM5 = krSearchMany $ take 5 singleWords
   let krSM = krSearchMany $ take 10 singleWords
 
-  getHomeDirectory >>= setCurrentDirectory
-  makeAbsolute "./Downloads" >>= setCurrentDirectory
   book1 <- B.readFile "76-0.txt"
   book2 <- B.readFile "2600-0.txt"
   defaultMain
@@ -69,14 +65,3 @@ main = do
         , bench "krSearchMany" $ nf krSM book2
         ]
     ]
-  {-
-  print "Searching for Huckleberry..."
-  --let idx = indices (C8.pack "Huckleberry") book
-  let idx = boyerSearchOne (C8.pack "Huckleberry") book
-  print idx
-
-
-  print "Searching for some words..."
-  let idxs = boyerSearchMany singleWords book
-  print idxs
-  -}
